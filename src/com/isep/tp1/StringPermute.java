@@ -16,6 +16,25 @@ public class StringPermute {
         return permutations;
     }
 
+    // Question 3: There are as much nested loops as chars in the input string.
+    // Therefore, for 3 chars, we have to add one more loop compared to the previous solution
+    public static ArrayList<String> Permutations3(String uniqueCharStr) {
+
+        ArrayList<String> permutations = new ArrayList<>();
+        for (int i=0; i<uniqueCharStr.length(); i++){
+            for (int j=0; j<uniqueCharStr.length(); j++){
+                for (int k = 0; k < uniqueCharStr.length(); k++) {
+                    if (i==j || i==k || j==k){
+                        continue;
+                    }
+                    permutations.add(uniqueCharStr.charAt(i) + "" + uniqueCharStr.charAt(j) + "" + uniqueCharStr.charAt(k));
+                }
+            }
+        }
+        return permutations;
+    }
+
+    // Question 4: Permutations for general case (any length of input string)
     public static ArrayList<String> PermutationsN(String str, String build, ArrayList<String> results) {
 
         if (str.length() == 0) {
@@ -32,9 +51,9 @@ public class StringPermute {
     }
 
     public static void main(String args[]){
-        StringPermute permutes = new StringPermute();
-        System.out.println("Permutations: " + Permutations("ab"));
+        System.out.println("Permutations, 2 chars: " + Permutations("ab"));
+        System.out.println("Permutations, 3 chars: " + Permutations3("abc"));
         ArrayList<String> results = new ArrayList<>();
-        System.out.println("Permutations: " + PermutationsN("abcdef", "", results));
+        System.out.println("Permutations, general case: " + PermutationsN("abcdef", "", results));
     }
 }

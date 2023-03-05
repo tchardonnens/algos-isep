@@ -1,7 +1,20 @@
 package com.isep.tp1;
 import java.util.*;
 
+// Question 1: The Fibonacci sequence involves the construction of a sequence of numbers,
+// where each number is the sum of the two preceding ones.
+// Therefore, it can be qualified as a construction problem.
+
+// Question 2:
 public class FibonacciSequence {
+
+    // Compexity (Question b):
+    // The function will make two recursive calls for each call
+    // until it reaches the base case of n = 0 or n = 1.
+    // Therefore, the number of recursive calls grows exponentially with n,
+    // leading to an exponential time complexity.
+    // Specifically, the time complexity of the given recursive function can be expressed as O(2^n),
+    // where n is the input to the function.
 
     int RecursiveFib(int n){
         if (n==0 || n==1) {
@@ -12,7 +25,8 @@ public class FibonacciSequence {
     }
 
     void IterativeFib(int n){
-        //  Time Complexity = 0(n) because n-1 iterations
+        // Compexity (Question d):
+        // Time Complexity = 0(n) because n-1 iterations
         int f0=0,f1=1,f2=0;
         if(n==0||n==1){
             System.out.println(n);
